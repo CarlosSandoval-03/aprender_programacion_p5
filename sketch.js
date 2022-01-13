@@ -1,7 +1,20 @@
+let tablero, jugador;
+
 function setup() {
-	createCanvas(400, 400);
+	createCanvas(VAR_CANVA.ancho, VAR_CANVA.alto);
+	tablero = createQuadrille(VAR_MATH.columnas, VAR_MATH.filas);
+	tablero.rand(
+		PARAMETRO.candidaCeldasVacias,
+		color(VAR_CANVA.colorCasillaVacia)
+	);
+	jugador = new Jugador();
 }
 
 function draw() {
-	background(220);
+	background(VAR_CANVA.colorTablero);
+	drawQuadrille(tablero, {
+		cellLength: VAR_MATH.tamanoCelda,
+		outline: VAR_CANVA.colorBordeTablero,
+		board: true,
+	});
 }
