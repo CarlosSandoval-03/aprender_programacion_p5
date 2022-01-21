@@ -27,7 +27,7 @@ function setup() {
 					nodoCoordenada = new Nodo(coordenada);
 				}
 				/** Agregamos el nodo */
-				grafo.agregarNodo(nodoCelda);
+				grafo.agregarNodo(nodoCoordenada);
 			}
 		}
 	}
