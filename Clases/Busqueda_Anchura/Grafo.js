@@ -9,7 +9,7 @@
  * Referencia: https://www.youtube.com/watch?v=piBq7VD0ZSo - The Coding Train (Breadth-First)
  * Articulo: https://es.wikipedia.org/wiki/Búsqueda_en_anchura
  ********************************************************************************************************************/
-class Grafo {
+class Arbol {
 	constructor() {
 		this.nodos = [];
 		this.grafo = {};

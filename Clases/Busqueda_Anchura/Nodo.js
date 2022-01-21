@@ -26,6 +26,5 @@ class Nodo {
 
 	conectar(vecino) {
 		this.conexiones.push(vecino);
-		vecino.conexiones.push(this); // Conexion en doble sentido
 	}
 }

@@ -143,4 +143,57 @@ class Mapa {
 	matriz() {
 		return this.cuadricula.toMatrix();
 	}
+
+	// ! Ver si convertirlos en estatico
+	crearArbolMapa(cuadricula = this.cuadricula) {
+		let arbol = new Arbol();
+		for (let filas = 0; filas < cuadricula.height; filas++) {
+			for (let columnas = 0; columnas < cuadricula.width; columnas++) {
+				/** Obtenemos el valor de la cuadricula */
+				let valorCelda = cuadricula.read(filas, columnas);
+				/** Verificamos que sea una celda valida (diferente a vacio) */
+				if (Mapa.esPiso(valorCelda)) {
+					/** Obtenemos las coordendas de la celda */
+					let coordenada = [columnas, filas]; // => (x, y)
+					/** Verificamos si existe en el grafo */
+					let nodoCoordenada = arbol.obtenerNodo(coordenada);
+					if (nodoCoordenada === undefined) {
+						/** Lo definimos si no existe */
+						nodoCoordenada = new Nodo(coordenada);
+					}
+					/** Agregamos el nodo */
+					arbol.agregarNodo(nodoCoordenada);
+				}
+			}
+		}
+		return arbol;
+	}
+
+	/**
+	 * Se realizan las conexiones entre celdas, primero obtenemos el grafo y lo
+	 * recorremos, por cada nodo almacenado en el grafo y adquirimos sus valores
+	 * despues buscamos
+	 */
+	// ! Ver si convertirlos en estatico
+	conectarMapa(arbol) {
+		let grafo = arbol.grafo;
+
+		for (let nombreNodo in grafo) {
+			let nodo = grafo[nombreNodo];
+			let coordenadas = nodo.valor;
+			let [x, y] = coordenadas;
+
+			for (let nombreVecino in grafo) {
+				let vecino = grafo[nombreVecino];
+				let [vecinoX, vecinoY] = vecino.valor;
+
+				if (vecinoX === x && (vecinoY === y + 1 || vecinoY === y - 1)) {
+					grafo[nombreNodo].conectar(vecino);
+				} else if ((vecinoX === x + 1 || vecinoX === x - 1) && vecinoY === y) {
+					grafo[nombreNodo].conectar(vecino);
+				}
+			}
+		}
+		return arbol;
+	}
 }
