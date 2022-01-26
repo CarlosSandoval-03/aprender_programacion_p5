@@ -103,15 +103,17 @@ class Mapa {
 		 * Llenamos la cuadricula de 1 que representa terreno habilitado, y generamos de forma
 		 * aleatoria la cantidad de celdas vacias dandoles el valor de 0
 		 */
-		if (this.cuadricula instanceof Quadrille) {
-			this.cuadricula.rand(Mapa.CELDAS_VACIAS, 1);
+		if (this._cuadricula instanceof Quadrille) {
+			this._cuadricula.rand(Mapa.CELDAS_VACIAS, 1);
 		}
 	}
-	/** Metodos GET y SET de la cuadricula que representa el mapa */
-	get cuadricula() {
+	/** Metodos GET y SET de la cuadricula que representa el mapa
+	 * Recomendacion de no usar Getters y setters - https://www.twitch.tv/videos/1274644444 - Midudev | 01:21:00
+	 */
+	getCuadricula() {
 		return this._cuadricula;
 	}
-	set cuadricula(nuevaCuadricula) {
+	setCuadricula(nuevaCuadricula) {
 		nuevaCuadricula instanceof Quadrille
 			? (this._cuadricula = nuevaCuadricula)
 			: console.error("La nueva cuadricula debe ser instancia de Quadrille");
@@ -133,7 +135,7 @@ class Mapa {
 	 * si no los colores respectivos
 	 */
 	_mapaGrafico() {
-		let mapaGrafico = this.cuadricula.clone();
+		let mapaGrafico = this.getCuadricula().clone();
 		mapaGrafico.replace(Mapa.VALOR_SUELO, color(Mapa.COLOR_SUELO));
 		mapaGrafico.replace(Mapa.VALOR_VACIO, color(Mapa.COLOR_VACIO));
 		return mapaGrafico;
@@ -141,11 +143,11 @@ class Mapa {
 
 	/** Retorna la cuadricula como matriz */
 	matriz() {
-		return this.cuadricula.toMatrix();
+		return this.getCuadricula().toMatrix();
 	}
 
 	// ! Ver si convertirlos en estatico
-	crearArbolMapa(cuadricula = this.cuadricula) {
+	crearArbolMapa(cuadricula = this.getCuadricula()) {
 		let arbol = new Arbol();
 		for (let filas = 0; filas < cuadricula.height; filas++) {
 			for (let columnas = 0; columnas < cuadricula.width; columnas++) {
