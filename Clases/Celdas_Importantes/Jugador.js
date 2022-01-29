@@ -21,11 +21,7 @@ class Jugador extends Posicion {
 	 * @static
 	 * @param {Image} Imagen del personaje
 	 */
-	static BASE_JUGADOR = (imagen) => [
-		[0, 0, 0],
-		[0, imagen, 1],
-		[0, 0, 0],
-	];
+	static BASE_JUGADOR = (imagen) => [imagen, 1];
 	/**
 	 * Inicializamos la posicion de la meta en el tablero
 	 * @constructor
