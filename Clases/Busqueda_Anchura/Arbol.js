@@ -13,6 +13,8 @@ class Arbol {
 	constructor() {
 		this.nodos = [];
 		this.grafo = {};
+		this.inicio = null;
+		this.final = null;
 	}
 
 	agregarNodo(nodo) {
@@ -25,5 +27,15 @@ class Arbol {
 	obtenerNodo(nodo) {
 		let nodoObtenido = this.grafo[nodo];
 		return nodoObtenido;
+	}
+
+	definirInicio([x, y]) {
+		let coordenada = `${x},${y}`;
+		this.inicio = this.grafo[coordenada];
+	}
+
+	definirFinal([x, y]) {
+		let coordenada = `${x},${y}`;
+		this.final = this.grafo[coordenada];
 	}
 }
