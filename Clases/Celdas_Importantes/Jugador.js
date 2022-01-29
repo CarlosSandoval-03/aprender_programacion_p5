@@ -16,12 +16,14 @@ class Jugador extends Posicion {
 	static RUTA_IMAGEN = "/Assets/robot.png";
 
 	/**
-	 * Estructura de la cuadricula que representara el jugador
+	 * Estructura de la cuadricula que representara el jugador, donde estara
+	 * el personaje y el 1 indicara el frente de la figura
 	 * @static
+	 * @param {Image} Imagen del personaje
 	 */
-	static BASE_JUGADOR = [
+	static BASE_JUGADOR = (imagen) => [
 		[0, 0, 0],
-		[0, undefined, 1],
+		[0, imagen, 1],
 		[0, 0, 0],
 	];
 	/**
@@ -31,27 +33,15 @@ class Jugador extends Posicion {
 	 * @param {Number} y equivalente a su posicion en filas
 	 * @see Posicion
 	 */
-	constructor(x, y) {
+	constructor(imagen, { x, y }) {
 		super(x, y);
-		this._hitbox = createQuadrille(Jugador.BASE_JUGADOR);
+		this._hitbox = createQuadrille(Jugador.BASE_JUGADOR(imagen));
 	}
 	getHitbox() {
 		return this._hitbox;
 	}
 	setHitbox(nuevoHitbox) {
 		this._hitbox = nuevoHitbox;
-	}
-
-	implementarAsset(imagen) {
-		let cuadricula = this.getHitbox();
-		for (let filas = 0; filas < cuadricula.height; filas++) {
-			for (let columnas = 0; columnas < cuadricula.width; columnas++) {
-				if (cuadricula.read(filas, columnas) === undefined) {
-					cuadricula.fill(filas, columnas, imagen);
-				}
-			}
-		}
-		this.setHitbox(cuadricula);
 	}
 
 	dibujar() {

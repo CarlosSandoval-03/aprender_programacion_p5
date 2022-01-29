@@ -6,7 +6,7 @@ const coord = {
 };
 
 function preload() {
-	let imagen = loadImage(Jugador.RUTA_IMAGEN);
+	imagen = loadImage(Jugador.RUTA_IMAGEN);
 }
 
 function setup() {
@@ -19,8 +19,7 @@ function setup() {
 	tablero = new Mapa(Mapa.COLUMNAS, Mapa.FILAS);
 
 	/** Creacion jugador e implementacion de su imagen */
-	jugador = new Jugador();
-	jugador.implementarAsset(imagen);
+	jugador = new Jugador(imagen, { x: 0, y: 0 });
 
 	/** El arbol de celdas para verificar si tiene solucion */
 	arbol = VerificacionMapa.crearArbolMapa(tablero.getCuadricula());
@@ -34,4 +33,5 @@ function setup() {
 
 function draw() {
 	tablero.dibujar();
+	jugador.dibujar();
 }
