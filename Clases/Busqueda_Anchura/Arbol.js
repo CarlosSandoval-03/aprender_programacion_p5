@@ -10,6 +10,9 @@
  * Articulo: https://es.wikipedia.org/wiki/Búsqueda_en_anchura
  ********************************************************************************************************************/
 class Arbol {
+	/**
+	 * @constructor
+	 */
 	constructor() {
 		this.nodos = [];
 		this.grafo = {};

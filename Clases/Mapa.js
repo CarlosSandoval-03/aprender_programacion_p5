@@ -10,46 +10,55 @@
 
 class Mapa {
 	/**
+	 * @static
 	 * @const {String} [Color por defecto del vacio]
 	 */
 	static COLOR_VACIO = "#020916";
 
 	/**
+	 * @static
 	 * @const {String} [Color por defecto del suelo]
 	 */
 	static COLOR_SUELO = "#004373";
 
 	/**
+	 * @static
 	 * @const {String} [Color por defecto del borde de la cuadricula]
 	 */
 	static COLOR_BORDE = "#0da2c2";
 
 	/**
+	 * @static
 	 * @const {Number} [Tamaño por defecto de cada celda de la cuadricula]
 	 */
 	static TAMANO_CELDA = 35;
 
 	/**
+	 * @static
 	 * @const {Number} [Cantidad de filas por defecto - Y]
 	 */
 	static FILAS = 5;
 
 	/**
+	 * @static
 	 * @const {Number} [Cantidad de columnas por defecto - X]
 	 */
 	static COLUMNAS = 12;
 
 	/**
+	 * @static
 	 * @const {Number} [Cantidad de celdas vacias por mapa]
 	 */
-	static CELDAS_VACIAS = 15;
+	static CELDAS_VACIAS = 1;
 
 	/**
+	 * @static
 	 * @const {Number} [Valor del piso por defecto]
 	 */
 	static VALOR_SUELO = 0;
 
 	/**
+	 * @static
 	 * @const {Number} [Valor del vacio por defecto]
 	 */
 	static VALOR_VACIO = 1;
@@ -119,6 +128,9 @@ class Mapa {
 			: console.error("La nueva cuadricula debe ser instancia de Quadrille");
 	}
 
+	/**
+	 * Convertir los valores de la cuadricula en colores de P5 y representarlos con los datos por defecto
+	 */
 	dibujar() {
 		let mapaGrafico = this._mapaGrafico();
 		drawQuadrille(mapaGrafico, {
@@ -131,8 +143,7 @@ class Mapa {
 	/**
 	 * Esta funcion remplaza los valores definidos por sus respectivos colores
 	 * @private
-	 * @returns {Quadrille} Instancia de Quadrille que ya no posee valores booleanos
-	 * si no los colores respectivos
+	 * @returns {Quadrille} Quadrille que ya no posee valores booleanos si no los colores respectivos
 	 */
 	_mapaGrafico() {
 		let mapaGrafico = this.getCuadricula().clone();

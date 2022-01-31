@@ -13,6 +13,7 @@ class VerificacionMapa {
 	/**
 	 * La funcion evaluara todas las casillas de la cuadricula, en caso de ser
 	 * una celda vacia la ignora, en caso de ser suelo lo añade al arbol
+	 * @static
 	 * @param {Quadrille} cuadricula instancia de Quadrille
 	 * @returns {Arbol} instancia de la clase arbol que posee los nodos conectados
 	 */
@@ -44,6 +45,7 @@ class VerificacionMapa {
 	 * Se realizan las conexiones entre celdas, primero obtenemos el grafo y lo
 	 * recorremos, por cada nodo almacenado en el grafo y adquirimos sus valores
 	 * despues buscamos
+	 * @static
 	 * @param {Arbol} objeto a conectar
 	 * @returns {Arbol} Actualiza la propiedad de grado con las conexiones
 	 */
@@ -70,7 +72,10 @@ class VerificacionMapa {
 	}
 
 	/**
-	 *
+	 * Constructor del controlador el cual crea las referencias en memoria necesarias
+	 * para aplicar el algoritmo de busqueda, como tambien obtener de manera sencilla
+	 * el estado del mapa (solucionable o no solucionable)
+	 * @constructor
 	 */
 	constructor() {
 		this.cola = [];
@@ -79,11 +84,13 @@ class VerificacionMapa {
 	}
 
 	/**
-	 *
-	 * @param {*} arbol
-	 * @param {*} param1
+	 * Se aplica el algoritmo de busqueda en anchura basado en 2 coordenadas del mapa
+	 * donde estaran ubicados el jugador y la meta
+	 * @param {Arbol} arbol escaneo del mapa de juego que permite realizar la busqueda
+	 * @param {Object} coordenadas iniciales y finales en formas de Arreglos
 	 */
 	busquedaCaminoValido(arbol, { coordenadasIniciales, coordenadasFinales }) {
+		// Indicamos el inicio y el final de la busqueda
 		arbol.definirInicio(coordenadasIniciales);
 		arbol.definirFinal(coordenadasFinales);
 
