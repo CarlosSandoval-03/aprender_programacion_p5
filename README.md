@@ -5,8 +5,8 @@
 
 ## Referencias
 
-1. Solucion a no recargar la pagina entera, si no cargar nuevo nivel: Rabbid76 - [https://stackoverflow.com/questions/61724523/reset-sketch-in-p5js]
+1. Solucion a no recargar la pagina entera, si no cargar nuevo nivel: [Respuesta de Rabbid76](https://stackoverflow.com/questions/61724523/reset-sketch-in-p5js)
 
-   1. Perfil de github de Rabbid76: [https://github.com/Rabbid76]
+   1. Perfil de github de [Rabbid76](https://github.com/Rabbid76)
 
 2.
