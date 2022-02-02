@@ -1,5 +1,20 @@
 let tablero, jugador, imagen;
 
+/**
+ * Funcion que permite crear un nivel, de esta manera se tiene un mejor manejo de los mapas
+ * sin la necesidad de recargar el navegador en su totalidad
+ *
+ * Creditos a: [Rabbid76] (https://github.com/Rabbid76)
+ * Referencia: https://stackoverflow.com/questions/61724523/reset-sketch-in-p5js
+ */
+function nivel() {
+	tablero = new Mapa(Mapa.COLUMNAS, Mapa.FILAS);
+	Validacion.iniciar(tablero);
+
+	let posicion = Validacion.jugador;
+	jugador = new Jugador(imagen, { x: posicion[0], y: posicion[1] });
+}
+
 function preload() {
 	imagen = loadImage(Jugador.RUTA_IMAGEN);
 }
@@ -9,12 +24,7 @@ function setup() {
 		Mapa.COLUMNAS * Mapa.TAMANO_CELDA,
 		Mapa.FILAS * Mapa.TAMANO_CELDA
 	);
-
-	tablero = new Mapa(Mapa.COLUMNAS, Mapa.FILAS);
-	Validacion.iniciar(tablero);
-
-	let posicion = Validacion.jugador;
-	jugador = new Jugador(imagen, { x: posicion[0], y: posicion[1] });
+	nivel();
 }
 
 function draw() {
