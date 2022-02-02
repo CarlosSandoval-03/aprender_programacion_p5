@@ -28,23 +28,56 @@ class GeneradorPosicion {
 	 * @param {Mapa} mapa instancia que permite acceder al tablero de juego
 	 * @param {Jugador} jugador intancia que permite acceder a los parametros del jugador
 	 */
-	constructor(mapa) {
+	constructor(mapa, posiciones = {}) {
 		this.mapa = mapa;
 		this.casillasValidas = [];
+		this.posiciones = posiciones;
 	}
 
-	almacenamientoCoordenadas() {
+	/**
+	 * Esta funcion permite almacenar las coordenadas de las casillas que son validas
+	 * recorre el tablero y si la casilla es habitable la almacena en el arreglo
+	 * @private
+	 */
+	_almacenamientoCoordenadas() {
 		let cuadricula = this.mapa.getCuadricula();
 		let coordenada;
 		for (let filas = 0; filas < cuadricula.height; filas++) {
 			for (let columnas = 0; columnas < cuadricula.width; columnas++) {
 				let valorCelda = cuadricula.read(filas, columnas);
-
 				if (Mapa.esPiso(valorCelda)) {
 					coordenada = [columnas, filas];
 					this.casillasValidas.push(coordenada);
 				}
 			}
 		}
+	}
+
+	/**
+	 * Esta funcion permite generar una posicion aleatoria dentro del tablero al tiempo
+	 * que retira esta para que no sea seleccionada de nuevo
+	 * @private
+	 * @returns {Array} arreglo con las coordenadas de las casillas validas
+	 */
+	_coordenada() {
+		this._almacenamientoCoordenadas();
+		let indice = GeneradorPosicion.generarNumeroAleatorio(
+			0,
+			this.casillasValidas.length - 1
+		);
+		this.casillasValidas.splice(indice, 1);
+		return this.casillasValidas[indice];
+	}
+
+	/**
+	 * La funcion crea un par de coordenadas que indican el camino a seguir por el jugador para
+	 * concretar el nivel
+	 * @returns {Object} objeto con las coordenadas de la posicion del jugador y la meta
+	 */
+	crearCamino() {
+		this.posiciones["coordenadasIniciales"] = this._coordenada();
+		this.posiciones["coordenadasFinales"] = this._coordenada();
+
+		return this.posiciones;
 	}
 }
