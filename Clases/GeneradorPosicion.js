@@ -65,8 +65,9 @@ class GeneradorPosicion {
 			0,
 			this.casillasValidas.length - 1
 		);
-		this.casillasValidas.splice(indice, 1);
-		return this.casillasValidas[indice];
+		let coordenada = this.casillasValidas[indice];
+		this.casillasValidas.splice(indice, 1); // Se elimina para no elegir la misma
+		return coordenada;
 	}
 
 	/**

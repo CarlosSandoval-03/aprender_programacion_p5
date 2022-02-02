@@ -1,4 +1,4 @@
-let tablero, jugador, imagen;
+let tablero, jugador, imagen, esVictoria;
 
 /**
  * Funcion que permite crear un nivel, de esta manera se tiene un mejor manejo de los mapas
@@ -24,10 +24,18 @@ function setup() {
 		Mapa.COLUMNAS * Mapa.TAMANO_CELDA,
 		Mapa.FILAS * Mapa.TAMANO_CELDA
 	);
-	nivel();
+	/** Crea un nivel valido */
+	while (!Validacion.contolador.tieneSolucion) {
+		nivel();
+	}
 }
 
 function draw() {
 	tablero.dibujar();
 	jugador.dibujar();
+	/** Comprobar casos de reinicio de nivel */
+	if (esVictoria || !Validacion.contolador.tieneSolucion) {
+		nivel();
+		esVictoria = false;
+	}
 }

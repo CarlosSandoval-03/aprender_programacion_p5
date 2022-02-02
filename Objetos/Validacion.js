@@ -26,7 +26,7 @@ const Validacion = {
 		this.crearGenerador(mapa);
 		this.crearCoordenadas();
 		this.verificacionMapa(mapa.getCuadricula());
-		console.log(this.contolador.tieneSolucion);
+		console.log(this.contolador.tieneSolucion); // Temporal
 		/** Actualizacion de las coordenadas de ambos estados */
 		this.jugador = this.coordenadas.coordenadasIniciales;
 		this.meta = this.coordenadas.coordenadasFinales;
