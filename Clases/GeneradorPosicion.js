@@ -28,9 +28,23 @@ class GeneradorPosicion {
 	 * @param {Mapa} mapa instancia que permite acceder al tablero de juego
 	 * @param {Jugador} jugador intancia que permite acceder a los parametros del jugador
 	 */
-	constructor(mapa, { jugador, meta }) {
+	constructor(mapa) {
 		this.mapa = mapa;
-		this.jugador = jugador;
-		this.meta = meta;
+		this.casillasValidas = [];
+	}
+
+	almacenamientoCoordenadas() {
+		let cuadricula = this.mapa.getCuadricula();
+		let coordenada;
+		for (let filas = 0; filas < cuadricula.height; filas++) {
+			for (let columnas = 0; columnas < cuadricula.width; columnas++) {
+				let valorCelda = cuadricula.read(filas, columnas);
+
+				if (Mapa.esPiso(valorCelda)) {
+					coordenada = [columnas, filas];
+					this.casillasValidas.push(coordenada);
+				}
+			}
+		}
 	}
 }

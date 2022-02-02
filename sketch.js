@@ -1,4 +1,4 @@
-let tablero, jugador, imagen, controlador;
+let tablero, jugador, imagen, controlador, generador;
 
 const coord = {
 	coordenadasIniciales: [0, 0],
@@ -17,6 +17,8 @@ function setup() {
 	);
 	/** Creacion del mapa */
 	tablero = new Mapa(Mapa.COLUMNAS, Mapa.FILAS);
+
+	generador = new GeneradorPosicion(tablero);
 
 	/** Creacion jugador e implementacion de su imagen */
 	jugador = new Jugador(imagen, { x: 0, y: 0 });
