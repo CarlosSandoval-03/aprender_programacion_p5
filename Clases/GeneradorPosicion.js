@@ -33,10 +33,4 @@ class GeneradorPosicion {
 		this.jugador = jugador;
 		this.meta = meta;
 	}
-
-	generarCoordenadas() {
-		let x = GeneradorPosicion.generarNumeroAleatorio(0, Mapa.COLUMNAS);
-		let y = GeneradorPosicion.generarNumeroAleatorio(0, Mapa.FILAS);
-		return [x, y];
-	}
 }

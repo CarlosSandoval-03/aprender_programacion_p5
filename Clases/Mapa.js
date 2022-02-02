@@ -49,7 +49,7 @@ class Mapa {
 	 * @static
 	 * @const {Number} [Cantidad de celdas vacias por mapa]
 	 */
-	static CELDAS_VACIAS = 1;
+	static CELDAS_VACIAS = 15;
 
 	/**
 	 * @static

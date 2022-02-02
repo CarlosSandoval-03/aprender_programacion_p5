@@ -27,7 +27,7 @@ function setup() {
 	/** Creamos el controlador encargado de aplicar el algoritmo */
 	controlador = new VerificacionMapa();
 	controlador.busquedaCaminoValido(arbol, coord);
-	console.log(arbol);
+
 	console.log(controlador.tieneSolucion);
 }
 
