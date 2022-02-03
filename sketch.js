@@ -1,4 +1,8 @@
-let tablero, jugador, imagen, esVictoria;
+let tablero,
+	jugador,
+	imagen,
+	esVictoria,
+	estaEjecutando = false;
 
 /**
  * Funcion que permite crear un nivel, de esta manera se tiene un mejor manejo de los mapas
@@ -13,24 +17,22 @@ function nivel() {
 
 	let posicion = Validacion.jugador;
 	jugador = new Jugador(imagen, { x: posicion[0], y: posicion[1] });
+	ControlJugador.setJugador(jugador);
+	ControlJugador.acciones = []; // Limpia las acciones del jugador
 }
 
 function preload() {
 	imagen = loadImage(Jugador.RUTA_IMAGEN);
-
-	/**
-	 * Imagen es un objeto, accedemos a su representacion en el canva
-	 * y le asignamos un id para poder manipularla posteriormente
-	 * @see Jugador
-	 */
-	imagen.canvas.id = "cosmetico_jugador";
 }
 
 function setup() {
-	createCanvas(
+	let canva = createCanvas(
 		Mapa.COLUMNAS * Mapa.TAMANO_CELDA,
 		Mapa.FILAS * Mapa.TAMANO_CELDA
 	);
+	/** Manejo del dom para aplicar estilos */
+	canva.id("mainGame");
+	select("#canvas-container").child(canva);
 
 	/** Crea un nivel valido */
 	while (!Validacion.contolador.tieneSolucion) {
@@ -45,5 +47,10 @@ function draw() {
 	if (esVictoria || !Validacion.contolador.tieneSolucion) {
 		nivel();
 		esVictoria = false;
+	}
+	/** Esto permite ejecutar el codigo una unica vez y comprobar la solucion */
+	if (estaEjecutando) {
+		ControlJugador.ejecutarAcciones();
+		estaEjecutando = false;
 	}
 }

@@ -25,6 +25,18 @@
 		></script>
 	</head>
 	<body>
+		<main id="mainScreen">
+			<div id="canvas-container"></div>
+			<button onclick="ControlJugador.izquierda()" class="boton-accion">
+				giroIzq
+			</button>
+			<button onclick="ControlJugador.avanzar()" class="boton-accion">
+				adelante
+			</button>
+			<button onclick="ControlJugador.derecha()" class="boton-accion">
+				giroDer
+			</button>
+		</main>
 		<a href="https://www.flaticon.es/iconos-gratis/robot" title="robot iconos"
 			>Robot iconos creados por Flat Icons - Flaticon</a
 		>
@@ -37,6 +49,7 @@
 		<script src="Clases/Celdas_Importantes/Jugador.js"></script>
 		<script src="Clases/Celdas_Importantes/Meta.js"></script>
 		<script src="Objetos/Validacion.js"></script>
+		<script src="Objetos/controlJugador.js"></script>
 		<script src="sketch.js"></script>
 	</body>
 </html>
