@@ -55,8 +55,9 @@ class Jugador extends Posicion {
 	 */
 	obtenerGiro() {
 		/** Cambio de los estados */
-		if (this._controladorOrientacion === 4) {
-			this._controladorOrientacion = 0;
+		if (this.getControladorOrientacion() >= 4) {
+			let movimiento = this.getControladorOrientacion() - 4;
+			this.setControladorOrientacion(movimiento);
 		}
 
 		switch (this.getControladorOrientacion()) {
@@ -76,9 +77,7 @@ class Jugador extends Posicion {
 	}
 
 	girarIzquierda() {
-		for (let i = 0; i < 3; i++) {
-			this.setControladorOrientacion(this.getControladorOrientacion() + 1);
-		}
+		this.setControladorOrientacion(this.getControladorOrientacion() + 3);
 	}
 
 	girarDerecha() {
@@ -100,6 +99,7 @@ class Jugador extends Posicion {
 	}
 
 	dibujar() {
+		this.obtenerGiro();
 		drawQuadrille(this.getHitbox(), {
 			row: super.getPosicionY(),
 			col: super.getPosicionX(),

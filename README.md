@@ -10,7 +10,7 @@
 3. Aplicación del algoritmo en P5 para buscar camino en data .Json [The Coding Train - 1](https://www.youtube.com/watch?v=piBq7VD0ZSo) y [The Coding Train - 2](https://www.youtube.com/watch?v=-he67EEM6z0)
 4. Solución a no recargar la página entera, sino cargar nuevo nivel: [Respuesta de Rabbid76](https://stackoverflow.com/questions/61724523/reset-sketch-in-p5js)
    1. Perfil de GitHub de [Rabbid76](https://github.com/Rabbid76)
-5. Iconos de [iconos creados por Flat Icons - Flaticon](https://www.flaticon.es/iconos-gratis/robot)
+5. Iconos de [iconos creados por Flat Icons - Flaticon](https://www.flaticon.es/iconos-gratis/)
 6. Documentación en EC6 [JSDdocs](https://stackoverflow.com/questions/41715994/how-to-document-ecma6-classes-with-jsdoc)
 7. Licencia [GPLv3](http://www.gnu.org/licenses/gpl.html)
 8. Función para la creación de números aleatorios [Código](https://desarrolloweb.com/articulos/763.php)

@@ -25,16 +25,13 @@ const ControlJugador = {
 	},
 
 	ejecutarAcciones: function () {
-		for (const movimiento of this.acciones) {
-			if (movimiento === "I") {
-				this.jugador.girarIzquierda();
-			} else if (movimiento === "D") {
-				this.jugador.girarDerecha();
-			} else if (movimiento === "W") {
-				this.jugador.adelante();
-			}
+		let movimiento = this.acciones.shift();
+		if (movimiento === "I") {
+			this.jugador.girarIzquierda();
+		} else if (movimiento === "D") {
+			this.jugador.girarDerecha();
+		} else if (movimiento === "W") {
+			this.jugador.adelante();
 		}
-		/** Limpiamos las acciones para recibir mas */
-		this.acciones = [];
 	},
 };

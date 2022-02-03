@@ -1,9 +1,17 @@
 let tablero,
 	jugador,
-	imagen,
+	meta,
+	imagenJugador,
+	imagenMeta,
 	esVictoria,
 	estaEjecutando = false;
 
+const VELOCIDAD_JUGADOR = 30;
+
+function preload() {
+	imagenJugador = loadImage(Jugador.RUTA_IMAGEN);
+	imagenMeta = loadImage(Meta.RUTA_IMAGEN);
+}
 /**
  * Funcion que permite crear un nivel, de esta manera se tiene un mejor manejo de los mapas
  * sin la necesidad de recargar el navegador en su totalidad
@@ -14,15 +22,17 @@ let tablero,
 function nivel() {
 	tablero = new Mapa(Mapa.COLUMNAS, Mapa.FILAS);
 	Validacion.iniciar(tablero);
-
+	/** Ubicamos el jugador */
 	let posicion = Validacion.jugador;
-	jugador = new Jugador(imagen, { x: posicion[0], y: posicion[1] });
+	jugador = new Jugador(imagenJugador, { x: posicion[0], y: posicion[1] });
+
+	/** Ubicamos la meta */
+	let objetivo = Validacion.meta;
+	meta = new Meta(imagenMeta, { x: objetivo[0], y: objetivo[1] });
+
+	/** Controlador de movimientos */
 	ControlJugador.setJugador(jugador);
 	ControlJugador.acciones = []; // Limpia las acciones del jugador
-}
-
-function preload() {
-	imagen = loadImage(Jugador.RUTA_IMAGEN);
 }
 
 function setup() {
@@ -42,6 +52,7 @@ function setup() {
 
 function draw() {
 	tablero.dibujar();
+	meta.dibujar();
 	jugador.dibujar();
 	/** Comprobar casos de reinicio de nivel */
 	if (esVictoria || !Validacion.contolador.tieneSolucion) {
@@ -49,8 +60,10 @@ function draw() {
 		esVictoria = false;
 	}
 	/** Esto permite ejecutar el codigo una unica vez y comprobar la solucion */
-	if (estaEjecutando) {
+	if (estaEjecutando && frameCount % VELOCIDAD_JUGADOR === 0) {
 		ControlJugador.ejecutarAcciones();
-		estaEjecutando = false;
+		if (ControlJugador.acciones.length === 0) {
+			estaEjecutando = false;
+		}
 	}
 }
