@@ -17,6 +17,13 @@ function nivel() {
 
 function preload() {
 	imagen = loadImage(Jugador.RUTA_IMAGEN);
+
+	/**
+	 * Imagen es un objeto, accedemos a su representacion en el canva
+	 * y le asignamos un id para poder manipularla posteriormente
+	 * @see Jugador
+	 */
+	imagen.canvas.id = "cosmetico_jugador";
 }
 
 function setup() {
@@ -24,6 +31,7 @@ function setup() {
 		Mapa.COLUMNAS * Mapa.TAMANO_CELDA,
 		Mapa.FILAS * Mapa.TAMANO_CELDA
 	);
+
 	/** Crea un nivel valido */
 	while (!Validacion.contolador.tieneSolucion) {
 		nivel();

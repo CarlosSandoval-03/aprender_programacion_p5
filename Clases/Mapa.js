@@ -31,7 +31,7 @@ class Mapa {
 	 * @static
 	 * @const {Number} [Tamaño por defecto de cada celda de la cuadricula]
 	 */
-	static TAMANO_CELDA = 35;
+	static TAMANO_CELDA = 90;
 
 	/**
 	 * @static
