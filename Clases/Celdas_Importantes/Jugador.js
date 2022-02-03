@@ -76,11 +76,13 @@ class Jugador extends Posicion {
 	}
 
 	girarIzquierda() {
-		this.setControladorOrientacion(this.getControladorOrientacion() + 1);
+		for (let i = 0; i < 3; i++) {
+			this.setControladorOrientacion(this.getControladorOrientacion() + 1);
+		}
 	}
 
 	girarDerecha() {
-		this.setControladorOrientacion(this.getControladorOrientacion() - 1);
+		this.setControladorOrientacion(this.getControladorOrientacion() + 1);
 	}
 
 	adelante() {
