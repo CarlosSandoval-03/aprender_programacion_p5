@@ -8,6 +8,21 @@
  * y: https://stackoverflow.com/questions/41715994/how-to-document-ecma6-classes-with-jsdoc
  ********************************************************************************************************************/
 class Posicion {
+	static mismaCoordenada(coordenadas1, coordenadas2) {
+		return (
+			coordenadas1.getPosicionX() === coordenadas2.getPosicionX() &&
+			coordenadas1.getPosicionY() === coordenadas2.getPosicionY()
+		);
+	}
+
+	static fueraMapa(coordenadas) {
+		return (
+			coordenadas.getPosicionX() < 0 ||
+			coordenadas.getPosicionX() >= Mapa.COLUMNAS ||
+			coordenadas.getPosicionY() < 0 ||
+			coordenadas.getPosicionY() >= Mapa.FILAS
+		);
+	}
 	/**
 	 * Inicializamos la posicion en el tablero
 	 * @constructor

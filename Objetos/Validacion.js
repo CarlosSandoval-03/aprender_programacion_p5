@@ -23,6 +23,7 @@ const Validacion = {
 	},
 
 	iniciar: function (mapa) {
+		this.controlador = new VerificacionMapa();
 		this.crearGenerador(mapa);
 		this.crearCoordenadas();
 		this.verificacionMapa(mapa.getCuadricula());

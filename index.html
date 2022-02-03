@@ -27,7 +27,12 @@
 	<body>
 		<main id="mainScreen">
 			<div id="canvas-container"></div>
-			<div id="moves-container"></div>
+			<div id="derrota">GRACIAS POR PARTICIPAR, SIGUE APRENDIENDO</div>
+		</main>
+		<section>
+			<div id="moves-container">
+				<ul id="pantalla-movimientos"></ul>
+			</div>
 			<div id="button-container">
 				<button onclick="estaEjecutando = true" class="boton-inicio">
 					Play
@@ -42,7 +47,7 @@
 					giroDer
 				</button>
 			</div>
-		</main>
+		</section>
 		<a href="https://www.flaticon.es/iconos-gratis/robot" title="robot iconos"
 			>Robot iconos creados por Flat Icons - Flaticon</a
 		>
@@ -55,7 +60,9 @@
 		<script src="Clases/Celdas_Importantes/Jugador.js"></script>
 		<script src="Clases/Celdas_Importantes/Meta.js"></script>
 		<script src="Objetos/Validacion.js"></script>
-		<script src="Objetos/controlJugador.js"></script>
+		<script src="Objetos/ControlJugador.js"></script>
+		<script src="Objetos/Comunicacion.js"></script>
+		<script src="Objetos/DOM.js"></script>
 		<script src="sketch.js"></script>
 	</body>
 </html>

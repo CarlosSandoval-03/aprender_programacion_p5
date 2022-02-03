@@ -32,21 +32,45 @@ class Jugador extends Posicion {
 	 */
 	constructor(imagen, { x, y }) {
 		super(x, y);
+		this._origen = { x: x, y: y };
 		this._hitbox = createQuadrille(Jugador.BASE_JUGADOR(imagen));
+		this._vidas = 3;
 		this._controladorOrientacion = 0;
 		this.orientacion = [1, 0];
 	}
+	/** "Reinicio de nivel", mas exactamente posicion */
+	getOrigen() {
+		return this._origen; // --> Solo lectura
+	}
+
+	/** Representacion de la cuadricula */
 	getHitbox() {
 		return this._hitbox;
 	}
 	setHitbox(nuevoHitbox) {
 		this._hitbox = nuevoHitbox;
 	}
+
+	/** Manejo de giros */
 	getControladorOrientacion() {
 		return this._controladorOrientacion;
 	}
 	setControladorOrientacion(nuevoControladorOrientacion) {
 		this._controladorOrientacion = nuevoControladorOrientacion;
+	}
+
+	/** Manejo de vidas */
+	getVidas() {
+		return this._vidas;
+	}
+	setVidas(nuevaCantidadVidas) {
+		this._vidas = nuevaCantidadVidas;
+	}
+
+	perderVida() {
+		this.setVidas(this.getVidas() - 1);
+		super.setPosicionX(this.getOrigen().x);
+		super.setPosicionY(this.getOrigen().y);
 	}
 
 	/**
@@ -90,12 +114,15 @@ class Jugador extends Posicion {
 		 * En base a la orientacion realizara un movimiento distinto equivalente
 		 * a sumar la cantidad del arreglo correspondiente a la coordenada actual
 		 */
-		let nuevaCoordenada = [
+		let nuevaCoordenada = new Posicion(
 			super.getPosicionX() + this.orientacion[0],
-			super.getPosicionY() + this.orientacion[1],
-		];
-		super.setPosicionX(nuevaCoordenada[0]);
-		super.setPosicionY(nuevaCoordenada[1]);
+			super.getPosicionY() + this.orientacion[1]
+		);
+		/** Si no esta fuera del mapa ejecuta */
+		if (!Posicion.fueraMapa(nuevaCoordenada)) {
+			super.setPosicionX(nuevaCoordenada.getPosicionX());
+			super.setPosicionY(nuevaCoordenada.getPosicionY());
+		}
 	}
 
 	dibujar() {

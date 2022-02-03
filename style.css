@@ -51,6 +51,24 @@ body {
 	top: 1px;
 }
 
+#moves-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.movimientos {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
 canvas {
 	display: block;
+}
+
+#derrota,
+#pausa {
+	height: 0px;
+	visibility: hidden;
 }

@@ -156,8 +156,17 @@ class VerificacionMapa {
 		 * En caso de existir solucion la propidad del controlador sera cambiara para
 		 * facilitar el proceso de creacion de nuevos mapas
 		 */
-		if (!flag) {
+		if (!flag && this.caminoValido()) {
 			this.tieneSolucion = true;
 		}
+	}
+
+	caminoValido() {
+		for (const keys in this.camino) {
+			if (!this.camino[keys].visitado) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
