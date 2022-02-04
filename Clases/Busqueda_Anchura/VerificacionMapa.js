@@ -21,12 +21,12 @@ class VerificacionMapa {
 		let arbol = new Arbol();
 		for (let filas = 0; filas < cuadricula.height; filas++) {
 			for (let columnas = 0; columnas < cuadricula.width; columnas++) {
-				/** Obtenemos el valor de la cuadricula */
 				let valorCelda = cuadricula.read(filas, columnas);
+
 				/** Verificamos que sea una celda valida (diferente a vacio) */
 				if (Mapa.esPiso(valorCelda)) {
-					/** Obtenemos las coordendas de la celda */
 					let coordenada = [columnas, filas]; // => (x, y)
+
 					/** Verificamos si existe en el grafo */
 					let nodoCoordenada = arbol.obtenerNodo(coordenada);
 					if (nodoCoordenada === undefined) {
@@ -161,6 +161,7 @@ class VerificacionMapa {
 		}
 	}
 
+	/** Se observa si la solucion planteada es valida, y retorna un booleano con ese valor */
 	caminoValido() {
 		if (this.camino === []) {
 			return false;

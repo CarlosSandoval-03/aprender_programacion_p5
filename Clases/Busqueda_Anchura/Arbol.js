@@ -11,6 +11,9 @@
  ********************************************************************************************************************/
 class Arbol {
 	/**
+	 * Nodos, almacena las casillas habitables
+	 * El grafo, donde se aplicara la busqueda en anchura
+	 * Inicio y Final son los nodos inicial y final respectivamente de la busqueda
 	 * @constructor
 	 */
 	constructor() {
