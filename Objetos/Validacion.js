@@ -3,7 +3,7 @@
  * codigo en sketch y aplicar un objeto literal
  */
 const Validacion = {
-	contolador: new VerificacionMapa(),
+	contolador: undefined ?? new VerificacionMapa(),
 	generador: undefined,
 	arbol: undefined,
 	coordenadas: undefined,

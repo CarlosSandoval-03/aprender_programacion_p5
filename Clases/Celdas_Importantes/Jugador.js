@@ -13,7 +13,10 @@ class Jugador extends Posicion {
 	 * Fuente: https://www.flaticon.es/iconos-gratis/robot - [Robot iconos creados por Flat Icons - Flaticon]
 	 * @static
 	 */
-	static RUTA_IMAGEN = "/Assets/robot.png";
+	static RUTA_IMAGEN1 = "/Assets/robot/robotDerecha.png";
+	static RUTA_IMAGEN2 = "/Assets/robot/robotAbajo.png";
+	static RUTA_IMAGEN3 = "/Assets/robot/robotIzquierda.png";
+	static RUTA_IMAGEN4 = "/Assets/robot/robotArriba.png";
 
 	/**
 	 * Estructura de la cuadricula que representara el jugador, donde estara
@@ -32,12 +35,25 @@ class Jugador extends Posicion {
 	 */
 	constructor(imagen, { x, y }) {
 		super(x, y);
+		this._imagen = imagen;
 		this._origen = { x: x, y: y };
-		this._hitbox = createQuadrille(Jugador.BASE_JUGADOR(imagen));
+		this._hitbox = createQuadrille(Jugador.BASE_JUGADOR(this._imagen));
 		this._vidas = 3;
 		this._controladorOrientacion = 0;
 		this.orientacion = [1, 0];
 	}
+
+	getImagen() {
+		return this._imagen;
+	}
+	setImagen(nuevaImagen) {
+		this._imagen = nuevaImagen;
+
+		/** Actualizacion personaje */
+		let hitbox = createQuadrille(Jugador.BASE_JUGADOR(nuevaImagen));
+		this.setHitbox(hitbox);
+	}
+
 	/** "Reinicio de nivel", mas exactamente posicion */
 	getOrigen() {
 		return this._origen; // --> Solo lectura
@@ -98,6 +114,7 @@ class Jugador extends Posicion {
 				this.orientacion = [0, -1]; // Arriba
 				break;
 		}
+		return this.getControladorOrientacion();
 	}
 
 	girarIzquierda() {

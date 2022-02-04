@@ -80,7 +80,7 @@ class VerificacionMapa {
 	constructor() {
 		this.cola = [];
 		this.camino = [];
-		this.tieneSolucion = undefined;
+		this.tieneSolucion = false;
 	}
 
 	/**
@@ -156,14 +156,18 @@ class VerificacionMapa {
 		 * En caso de existir solucion la propidad del controlador sera cambiara para
 		 * facilitar el proceso de creacion de nuevos mapas
 		 */
-		if (!flag && this.caminoValido()) {
+		if (this.caminoValido()) {
 			this.tieneSolucion = true;
 		}
 	}
 
 	caminoValido() {
-		for (const keys in this.camino) {
-			if (!this.camino[keys].visitado) {
+		if (this.camino === []) {
+			return false;
+		}
+
+		for (const key in Object.keys(this.camino)) {
+			if (this.camino[key].visitado === false) {
 				return false;
 			}
 		}

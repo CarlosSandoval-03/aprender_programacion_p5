@@ -1,14 +1,29 @@
 let tablero,
 	jugador,
 	meta,
-	imagenJugador,
 	imagenMeta,
 	estaEjecutando = false;
+
+let imagenJugador1, imagenJugador2, imagenJugador3, imagenJugador4;
+let sprites;
 
 const VELOCIDAD_JUGADOR = 30;
 
 function preload() {
-	imagenJugador = loadImage(Jugador.RUTA_IMAGEN);
+	/** Imagen */
+	imagenJugador1 = loadImage(Jugador.RUTA_IMAGEN1);
+	imagenJugador2 = loadImage(Jugador.RUTA_IMAGEN2);
+	imagenJugador3 = loadImage(Jugador.RUTA_IMAGEN3);
+	imagenJugador4 = loadImage(Jugador.RUTA_IMAGEN4);
+	sprites = {
+		Rigth: imagenJugador1,
+		Down: imagenJugador2,
+		Left: imagenJugador3,
+		Up: imagenJugador4,
+	};
+	ControlJugador.setImagenes(sprites);
+
+	/** Meta */
 	imagenMeta = loadImage(Meta.RUTA_IMAGEN);
 }
 
@@ -22,14 +37,16 @@ function setup() {
 	select("#canvas-container").child(canva);
 
 	/** Crea un nivel valido */
-	while (!Validacion.contolador.tieneSolucion) {
-		nivel();
+	nivel();
+	if (!Validacion.contolador.caminoValido()) {
+		location.reload();
 	}
 }
 
 function draw() {
 	tablero.dibujar();
 	meta.dibujar();
+	ControlJugador.definirImagen();
 	jugador.dibujar();
 
 	/** Si no hay vidas, detiene el juego */
@@ -42,7 +59,7 @@ function draw() {
 	}
 
 	/** Comprobar casos de reinicio de nivel */
-	if (Comunicacion.victoria() || !Validacion.contolador.tieneSolucion) {
+	if (Comunicacion.victoria() || !Validacion.contolador.caminoValido()) {
 		nivel();
 	}
 
@@ -74,7 +91,7 @@ function nivel() {
 
 	/** Ubicamos el jugador */
 	let posicion = Validacion.jugador;
-	jugador = new Jugador(imagenJugador, { x: posicion[0], y: posicion[1] });
+	jugador = new Jugador(imagenJugador1, { x: posicion[0], y: posicion[1] });
 
 	/** Ubicamos la meta */
 	let objetivo = Validacion.meta;
