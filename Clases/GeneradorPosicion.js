@@ -79,6 +79,13 @@ class GeneradorPosicion {
 		this.posiciones["coordenadasIniciales"] = this._coordenada();
 		this.posiciones["coordenadasFinales"] = this._coordenada();
 
+		if (
+			this.posiciones["coordenadasIniciales"] ===
+			this.posiciones["coordenadasFinales"]
+		) {
+			location.reload();
+		}
+
 		return this.posiciones;
 	}
 }

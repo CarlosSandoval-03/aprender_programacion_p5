@@ -19,3 +19,8 @@
 10. Manejo de funciones Arrow [básico](https://javascript.info/arrow-functions-basics) y [profundización](https://javascript.info/arrow-functions)
 11. Manejo de constructores a través del objeto [arguments](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/arguments) y su [aplicación](https://github.com/objetos/p5.quadrille.js/blob/main/p5.quadrille.js)
 12. El porque usar métodos get y set puede generar problemas [Midudev](https://www.twitch.tv/videos/1274644444) - 01:21:00
+13. Alertify.js: Liberia que facilita la creacion de prompts [Documentacion](https://alertifyjs.com/)
+14. Manejo del localStorage [Documentacion](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
+15. Manejo de Json [Documentacion](https://developer.mozilla.org/es/docs/Learn/JavaScript/Objects/JSON)
+16. Uso de JSON.parse y JSON.stringify [Guia](https://platzi.com/clases/2419-javascript-poo-intermedio/39813-jsonparse-y-jsonstringify/?utm_source=google&utm_medium=cpc&utm_campaign=12915366154&utm_adgroup=&utm_content=&gclid=Cj0KCQiAgP6PBhDmARIsAPWMq6kUuduSWZu4F8KdwevWM22Xa6EPxx6DVOyZqRKdwzsOSAxbBHBvISIaArccEALw_wcB&gclsrc=aw.ds)
+17. Uso de parseInt [Documentacion](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/parseInt)

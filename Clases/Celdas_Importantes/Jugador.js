@@ -83,10 +83,15 @@ class Jugador extends Posicion {
 		this._vidas = nuevaCantidadVidas;
 	}
 
-	perderVida() {
-		this.setVidas(this.getVidas() - 1);
+	renicio() {
 		super.setPosicionX(this.getOrigen().x);
 		super.setPosicionY(this.getOrigen().y);
+		this.setControladorOrientacion(0); // --> Reinicio de orientacion
+	}
+
+	perderVida() {
+		this.setVidas(this.getVidas() - 1);
+		this.renicio();
 	}
 
 	/**

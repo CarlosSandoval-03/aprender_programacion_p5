@@ -4,6 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Aprende a programar jugando - Main</title>
+		<link rel="shortcut icon" href="Assets/robot/robotDerecha.png" />
 		<link rel="stylesheet" type="text/css" href="./style.css" />
 		<script
 			language="javascript"
@@ -21,16 +22,30 @@
 			type="text/javascript"
 			src="libraries/p5.Quadrille.js"
 		></script>
+		<!-- Alertify.js -->
+		<script
+			language="javascript"
+			type="text/javascript"
+			src="libraries/alertify/alertify.min.js"
+		></script>
+		<link rel="stylesheet" href="libraries/alertify/alertify.min.css" />
+		<link rel="stylesheet" href="libraries/alertify/default.min.css" />
 	</head>
 	<body>
+		<header>
+			<div id="titulo"><h1>APRENDE A PROGRAMAR JUGANDO!</h1></div>
+		</header>
 		<main id="mainScreen">
+			<div id="informacion">
+				<div id="puntos"></div>
+				<div id="vidas"></div>
+			</div>
 			<div id="canvas-container"></div>
-			<div id="derrota">GRACIAS POR PARTICIPAR, SIGUE APRENDIENDO</div>
-		</main>
-		<section>
 			<div id="moves-container">
 				<ul id="pantalla-movimientos"></ul>
 			</div>
+		</main>
+		<section id="controles-container">
 			<div id="button-container">
 				<button onclick="estaEjecutando = true" class="boton-inicio">
 					Play
@@ -46,9 +61,11 @@
 				</button>
 			</div>
 		</section>
-		<a href="https://www.flaticon.es/iconos-gratis/robot" title="robot iconos"
-			>Robot iconos creados por Flat Icons - Flaticon</a
-		>
+		<footer>
+			<a href="https://www.flaticon.es/iconos-gratis/robot" title="robot iconos"
+				>Robot iconos creados por Flat Icons - Flaticon</a
+			>
+		</footer>
 		<script src="Clases/Busqueda_Anchura/Nodo.js"></script>
 		<script src="Clases/Busqueda_Anchura/Arbol.js"></script>
 		<script src="Clases/Busqueda_Anchura/VerificacionMapa.js"></script>
@@ -57,10 +74,14 @@
 		<script src="Clases/Celdas_Importantes/Posicion.js"></script>
 		<script src="Clases/Celdas_Importantes/Jugador.js"></script>
 		<script src="Clases/Celdas_Importantes/Meta.js"></script>
+		<script src="Clases/Almacenamiento.js"></script>
+		<script src="Clases/Puntuacion.js"></script>
 		<script src="Objetos/Validacion.js"></script>
 		<script src="Objetos/ControlJugador.js"></script>
 		<script src="Objetos/Comunicacion.js"></script>
 		<script src="Objetos/DOM.js"></script>
+		<script src="Objetos/BarraMovimientos.js"></script>
+		<script src="Objetos/Informacion.js"></script>
 		<script src="sketch.js"></script>
 	</body>
 </html>

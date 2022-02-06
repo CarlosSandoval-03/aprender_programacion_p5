@@ -1,24 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 html,
 body {
 	margin: 0;
 	padding: 0;
-	/* Temporal */
-	background-color: rgb(40, 40, 40);
+	font-size: 10px;
+	font-family: "Press Start 2P", cursive;
+	background-color: #023c47;
+	color: #00eef2;
+	overflow-x: hidden;
 }
 
+/* Botones */
 .boton-accion {
-	box-shadow: 4px 5px 8px 1px #1564ad;
+	box-shadow: 0.4em 0.5em 0.8em 0.1em #1564ad;
 	background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
 	background-color: #79bbff;
-	border-radius: 5px;
-	border: 1px solid #337bc4;
+	border-radius: 0.5em;
+	border: 0.1em solid #337bc4;
 	display: inline-block;
 	cursor: pointer;
 	color: #ffffff;
 	font-family: Arial;
-	font-size: 17px;
+	font-size: 1.7em;
 	font-weight: bold;
-	padding: 12px 44px;
+	padding: 1.2em 4.4em;
 	text-decoration: none;
 }
 .boton-accion:hover {
@@ -27,33 +32,42 @@ body {
 }
 .boton-accion:active {
 	position: relative;
-	top: 1px;
+	top: 0.1em;
 }
 
 .boton-inicio {
 	background-color: #44c767;
-	border-radius: 28px;
-	border: 1px solid #18ab29;
+	border-radius: 2.8em;
+	border: 0.1em solid #18ab29;
 	display: inline-block;
 	cursor: pointer;
 	color: #ffffff;
 	font-family: Arial;
-	font-size: 17px;
-	padding: 16px 31px;
+	font-size: 1.7em;
+	padding: 1.6em 3.1em;
 	text-decoration: none;
-	text-shadow: 0px 1px 0px #2f6627;
+	text-shadow: 0em 0.1em 0em #2f6627;
 }
 .boton-inicio:hover {
 	background-color: #5cbf2a;
 }
 .boton-inicio:active {
 	position: relative;
-	top: 1px;
+	top: 0.1em;
+}
+
+/* Movimientos */
+#moves-container,
+#button-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	width: 100%;
+	height: auto;
 }
 
 #moves-container {
-	display: flex;
-	flex-direction: row;
+	width: 100%;
 }
 
 .movimientos {
@@ -63,12 +77,67 @@ body {
 	display: inline;
 }
 
+/* Juego principal */
 canvas {
 	display: block;
 }
 
-#derrota,
-#pausa {
+#mainScreen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+/* Contenedor Derrota */
+#derrota {
 	height: 0px;
 	visibility: hidden;
+}
+
+#mainScreen,
+#controles-container {
+	background-color: #020916;
+	padding: 5em;
+}
+
+/* Header */
+header,
+footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 0em;
+	margin: 0em;
+	height: 15em;
+	text-align: center;
+}
+
+#titulo {
+	font-size: 2em;
+}
+
+footer a {
+	color: #00eef2;
+	text-decoration: none;
+	font-size: 3em;
+	margin: auto;
+}
+
+#pantalla-movimientos li {
+	display: inline;
+	margin: 0.2em;
+	font-size: 2em;
+}
+
+#informacion {
+	display: flex;
+	flex-direction: row;
+	width: 70%;
+	height: 2em;
+	justify-content: space-between;
+	font-size: 2em;
 }
