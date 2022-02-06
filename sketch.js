@@ -8,6 +8,8 @@ let tablero,
 let imagenJugador1, imagenJugador2, imagenJugador3, imagenJugador4;
 let sprites;
 
+let puntaje, topScore;
+
 const VELOCIDAD_JUGADOR = 30;
 
 function preload() {
@@ -44,6 +46,10 @@ function setup() {
 	if (!Validacion.contolador.caminoValido()) {
 		location.reload();
 	}
+
+	/** Sistema de puntuacion */
+	puntaje = new Puntuacion();
+	puntaje.setPuntaje(puntaje.getPuntaje()); // Recuperamos el puntaje existente y lo almacenamos
 }
 
 function draw() {
@@ -55,16 +61,21 @@ function draw() {
 	/** Si no hay vidas, detiene el juego */
 	if (jugador.getVidas() <= 0) {
 		DOM.derrota();
+		topScore = puntaje.getPuntaje();
+		puntaje.limpiarPuntaje();
 	}
 
 	if (Comunicacion.esVictoria()) {
+		ControlJugador.acciones = []; // Se limpian las demas acciones
 		alertify.success(
 			"Felicidades, has ganado!\nBuscando el siguiente nivel..."
 		);
+		puntaje.setPuntaje(puntaje.getPuntaje() + 1); // Incremento Puntaje
+		nivel(); //Siguiente Nivel
 	}
 
 	/** Comprobar casos de reinicio de nivel */
-	if (Comunicacion.esVictoria() || !Validacion.contolador.caminoValido()) {
+	if (!Validacion.contolador.caminoValido()) {
 		nivel();
 	}
 
@@ -73,6 +84,7 @@ function draw() {
 		ControlJugador.ejecutarAcciones();
 		if (!Comunicacion.posicionValida()) {
 			/** Si el jugador pierde vida, se inicia un nuevo nivel */
+			ControlJugador.acciones = []; // Se limpian las demas acciones
 			jugador.perderVida();
 			alertify.error('"Perdiste una vida, recuerda no caer"');
 		}
@@ -86,7 +98,8 @@ function draw() {
 	 * En caso de que se ejecuten las acciones y el personaje no llegue a la meta
 	 * se reinicia el nivel y se pierde una vida
 	 */
-	if (accionesFinalizadas && !Comunicacion.esVictoria()) {
+	if (!Comunicacion.esVictoria() && accionesFinalizadas) {
+		ControlJugador.acciones = []; // Se limpian las demas acciones
 		jugador.renicio();
 		alertify.warning("Debes indicar la trayectoria completa");
 		accionesFinalizadas = false;

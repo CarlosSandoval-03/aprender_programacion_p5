@@ -36,7 +36,7 @@ const Comunicacion = {
 		return false;
 	},
 	/** Verificamos que el jugador y la meta esten el la misma posicion */
-	victoria() {
+	esVictoria() {
 		let xJugador = this.jugador.getPosicionX(),
 			yJugador = this.jugador.getPosicionY();
 
