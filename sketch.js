@@ -18,21 +18,23 @@ function preload() {
 	imagenJugador2 = loadImage(Jugador.RUTA_IMAGEN2);
 	imagenJugador3 = loadImage(Jugador.RUTA_IMAGEN3);
 	imagenJugador4 = loadImage(Jugador.RUTA_IMAGEN4);
-	/** Objeto de sprites */
+}
+
+function setup() {
+	/** Ajuste de imagenes */
 	sprites = {
 		Rigth: imagenJugador1,
 		Down: imagenJugador2,
 		Left: imagenJugador3,
 		Up: imagenJugador4,
 	};
+
 	/** Implementamos los sprites */
 	ControlJugador.setImagenes(sprites);
 
 	/** Meta */
 	imagenMeta = loadImage(Meta.RUTA_IMAGEN);
-}
 
-function setup() {
 	let canva = createCanvas(
 		Mapa.COLUMNAS * Mapa.TAMANO_CELDA,
 		Mapa.FILAS * Mapa.TAMANO_CELDA
