@@ -21,20 +21,6 @@ function preload() {
 }
 
 function setup() {
-	/** Ajuste de imagenes */
-	sprites = {
-		Rigth: imagenJugador1,
-		Down: imagenJugador2,
-		Left: imagenJugador3,
-		Up: imagenJugador4,
-	};
-
-	/** Implementamos los sprites */
-	ControlJugador.setImagenes(sprites);
-
-	/** Meta */
-	imagenMeta = loadImage(Meta.RUTA_IMAGEN);
-
 	let canva = createCanvas(
 		Mapa.COLUMNAS * Mapa.TAMANO_CELDA,
 		Mapa.FILAS * Mapa.TAMANO_CELDA
@@ -118,6 +104,20 @@ function draw() {
  * Referencia: https://stackoverflow.com/questions/61724523/reset-sketch-in-p5js
  */
 function nivel() {
+	/** Ajuste de imagenes */
+	sprites = {
+		Rigth: imagenJugador1,
+		Down: imagenJugador2,
+		Left: imagenJugador3,
+		Up: imagenJugador4,
+	};
+
+	/** Implementamos los sprites */
+	ControlJugador.setImagenes(sprites);
+
+	/** Meta */
+	imagenMeta = loadImage(Meta.RUTA_IMAGEN);
+
 	/** Nuevo mapa y verificamos que tenga solucion */
 	tablero = new Mapa(Mapa.COLUMNAS, Mapa.FILAS);
 	Validacion.iniciar(tablero);
