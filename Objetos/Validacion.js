@@ -35,7 +35,6 @@ const Validacion = {
 		this.crearGenerador(mapa);
 		this.crearCoordenadas();
 		this.verificacionMapa(mapa.getCuadricula());
-		console.log(this.contolador.tieneSolucion); // Temporal
 		if (this.contolador.tieneSolucion) {
 			this.contadorBug++;
 		}
