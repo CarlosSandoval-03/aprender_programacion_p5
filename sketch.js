@@ -2,6 +2,7 @@ let tablero,
 	jugador,
 	meta,
 	imagenMeta,
+	accionesFinalizadas = false,
 	estaEjecutando = false;
 
 let imagenJugador1, imagenJugador2, imagenJugador3, imagenJugador4;
@@ -56,12 +57,14 @@ function draw() {
 		DOM.derrota();
 	}
 
-	if (Comunicacion.victoria()) {
-		alert("Felicidades, has ganado!\nBuscando el siguiente nivel...");
+	if (Comunicacion.esVictoria()) {
+		alertify.success(
+			"Felicidades, has ganado!\nBuscando el siguiente nivel..."
+		);
 	}
 
 	/** Comprobar casos de reinicio de nivel */
-	if (Comunicacion.victoria() || !Validacion.contolador.caminoValido()) {
+	if (Comunicacion.esVictoria() || !Validacion.contolador.caminoValido()) {
 		nivel();
 	}
 
@@ -71,14 +74,24 @@ function draw() {
 		if (!Comunicacion.posicionValida()) {
 			/** Si el jugador pierde vida, se inicia un nuevo nivel */
 			jugador.perderVida();
-			confirm("Perdiste una vida, recuerda no caer"); // -> Reinicio no inmediato
+			alertify.error('"Perdiste una vida, recuerda no caer"');
 		}
 		if (ControlJugador.acciones.length === 0) {
 			estaEjecutando = false;
+			accionesFinalizadas = true;
 		}
 	}
-}
 
+	/**
+	 * En caso de que se ejecuten las acciones y el personaje no llegue a la meta
+	 * se reinicia el nivel y se pierde una vida
+	 */
+	if (accionesFinalizadas && !Comunicacion.esVictoria()) {
+		jugador.renicio();
+		alertify.warning("Debes indicar la trayectoria completa");
+		accionesFinalizadas = false;
+	}
+}
 /**
  * Funcion que permite crear un nivel, de esta manera se tiene un mejor manejo de los mapas
  * sin la necesidad de recargar el navegador en su totalidad
