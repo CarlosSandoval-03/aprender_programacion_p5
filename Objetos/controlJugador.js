@@ -50,7 +50,7 @@ const ControlJugador = {
 
 	/**
 	 * Se elige el sprite a representar
-	 * @see sketch.js - funcion preload()
+	 * @see sketch.js - funcion preload
 	 */
 	definirImagen() {
 		switch (this.jugador.obtenerGiro()) {
