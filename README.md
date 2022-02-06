@@ -19,3 +19,5 @@
 10. Manejo de funciones Arrow [básico](https://javascript.info/arrow-functions-basics) y [profundización](https://javascript.info/arrow-functions)
 11. Manejo de constructores a través del objeto [arguments](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/arguments) y su [aplicación](https://github.com/objetos/p5.quadrille.js/blob/main/p5.quadrille.js)
 12. El porque usar métodos get y set puede generar problemas [Midudev](https://www.twitch.tv/videos/1274644444) - 01:21:00
+13. Alertify.js: Liberia que facilita la creacion de prompts [Documentacion](https://alertifyjs.com/)
+14. Manejo del localStorage [Documentacion](https://developer.mozilla.org/es/docs/Web/API/Window/localStorage)
