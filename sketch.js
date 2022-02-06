@@ -15,12 +15,14 @@ function preload() {
 	imagenJugador2 = loadImage(Jugador.RUTA_IMAGEN2);
 	imagenJugador3 = loadImage(Jugador.RUTA_IMAGEN3);
 	imagenJugador4 = loadImage(Jugador.RUTA_IMAGEN4);
+	/** Objeto de sprites */
 	sprites = {
 		Rigth: imagenJugador1,
 		Down: imagenJugador2,
 		Left: imagenJugador3,
 		Up: imagenJugador4,
 	};
+	/** Implementamos los sprites */
 	ControlJugador.setImagenes(sprites);
 
 	/** Meta */

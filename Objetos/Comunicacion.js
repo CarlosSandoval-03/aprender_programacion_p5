@@ -1,4 +1,5 @@
 const Comunicacion = {
+	/** Objetos a comunicar */
 	jugador: undefined,
 	mapa: undefined,
 	meta: undefined,
@@ -34,6 +35,7 @@ const Comunicacion = {
 		}
 		return false;
 	},
+	/** Verificamos que el jugador y la meta esten el la misma posicion */
 	victoria() {
 		let xJugador = this.jugador.getPosicionX(),
 			yJugador = this.jugador.getPosicionY();

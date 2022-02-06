@@ -21,7 +21,6 @@ const Validacion = {
 		this.arbol = VerificacionMapa.conectarMapa(this.arbol);
 		this.contolador.busquedaCaminoValido(this.arbol, this.coordenadas);
 	},
-
 	iniciar: function (mapa) {
 		this.controlador = new VerificacionMapa();
 		this.crearGenerador(mapa);

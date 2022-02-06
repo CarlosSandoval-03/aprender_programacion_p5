@@ -1,4 +1,5 @@
 const ControlJugador = {
+	/** El jugador y los assets que se representaran */
 	jugador: undefined,
 	imagenes: {
 		Rigth: undefined,
@@ -6,6 +7,7 @@ const ControlJugador = {
 		Left: undefined,
 		Up: undefined,
 	},
+	/** Metodos GET y SET */
 	getJugador: function () {
 		return this.jugador;
 	},
@@ -34,7 +36,7 @@ const ControlJugador = {
 	avanzar: function () {
 		this.acciones.push("W");
 	},
-
+	/** Se analiza el movimiento y realiza */
 	ejecutarAcciones: function () {
 		let movimiento = this.acciones.shift();
 		if (movimiento === "I") {
