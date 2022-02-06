@@ -1,11 +1,23 @@
 const DOM = {
 	/** Se hace visible el div de derrota */
 	derrota: function () {
-		let derrota = document.getElementById("derrota");
-		derrota.style.visibility = "visible";
-		derrota.style.height = "100%";
-		/** Se esconde el canva */
-		let canva = document.getElementById("mainGame");
-		canva.style.visibility = "hidden";
+		alertify.confirm(
+			"GAME OVER!",
+			`Tu puntaje fue de ${puntaje.getPuntaje()}, deseas volver a jugar?`,
+			function () {
+				alertify.success("Ok");
+				puntaje.limpiarPuntaje(); // Limpiamos el puntaje
+				location.reload();
+			},
+			function () {
+				alertify.error("No volver a jugar, leer mas sobre el juego");
+				puntaje.limpiarPuntaje(); // Limpiamos el puntaje
+				/** Redirecciona al Readme.md */
+				window.open(
+					"https://github.com/CarlosSandoval-03/aprender_programacion_p5/blob/main/README.md",
+					"_blank"
+				);
+			}
+		);
 	},
 };

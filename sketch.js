@@ -53,7 +53,8 @@ function setup() {
 }
 
 function draw() {
-	BarraMovimientos.dibujar();
+	BarraMovimientos.dibujar(); // --> Actualizacion barra de movimientos
+	Informacion.dibujar(); // --> Actualizacion de informacion
 	tablero.dibujar();
 	meta.dibujar();
 	ControlJugador.definirImagen();
@@ -62,8 +63,9 @@ function draw() {
 	/** Si no hay vidas, detiene el juego */
 	if (jugador.getVidas() <= 0) {
 		DOM.derrota();
-		topScore = puntaje.getPuntaje();
-		puntaje.limpiarPuntaje();
+		/**
+		 * Se limpia el puntaje en @see {DOM.js}
+		 */
 	}
 
 	if (Comunicacion.esVictoria()) {
