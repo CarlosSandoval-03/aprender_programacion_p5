@@ -53,6 +53,7 @@ function setup() {
 }
 
 function draw() {
+	BarraMovimientos.dibujar();
 	tablero.dibujar();
 	meta.dibujar();
 	ControlJugador.definirImagen();
