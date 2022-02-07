@@ -12,6 +12,9 @@
   - [Estructura de Objetos](#estructura-de-objetos)
     - [Manejo del DOM](#manejo-del-dom)
     - [Comunicación Entre Objetos](#comunicación-entre-objetos)
+  - [Limitaciones](#limitaciones)
+  - [Futuras Mejoras](#futuras-mejoras)
+  - [Conclusiones](#conclusiones)
   - [Referencias](#referencias)
 
 ## Objetivo General
@@ -71,6 +74,26 @@ El manejo de los objetos que interactuaran en el mapa, como el jugador, la meta 
 - Comunicación: Objeto literal, este posee métodos de verificación de posiciones, detección de victoria y almacena las instancias de jugador, mapa y meta para realizar sus métodos.
 - Control Jugador: Este permite la comunicación entre las imágenes precargadas, los botones en el HTML y la instancia de Jugador, permitiendo cambiar su representación grafica en base a la rotación y moverlo a través del mapa.
 - Validación: Realiza las operaciones entre: Verificación del mapa, generadores de coordenadas, conteo de bugs en caso de presentarse y administración del algoritmo de búsqueda en anchura, aplicado para simplificar la lectura en el código Sketch.
+
+## Limitaciones
+
+Al momento de esta versión en producción, existe un bug que genera niveles de forma consecutiva, sin permitir la interacción del jugador, este es controlado con el sistema de conteo de bugs, que realiza una recarga de la página sin afectar los datos almacenados, pero sigue presente en el juego. De igual manera con una notificación constante la cual indica que la trayectoria completa debe ser presentada (esto en casos de victoria no tiene sentido).
+
+Se presentan problematicas a la hora de implementar animaciones que describan de mejor manera el movimiento del jugador y le den un toque mas profesional al movimiento.
+
+## Futuras Mejoras
+
+- Implementación de un sistema de movimiento basado en bloques e integración con ciclos que permitan abarcar más conceptos de programación.
+- Mejora en el diseño UI y UX para que sea más amigable con el usuario.
+- Mejora en patrones de diseño para que sean más amigables con el desarrollador.
+- Corrección de errores en el algoritmo de generación de niveles.
+- Implementación de un sistema de backend que permite almacenamiento en base de datos y eliminar la dependencia del chache.
+- Búsqueda de nuevas librerías que permitan mejorar el estado del proyecto.
+
+## Conclusiones
+
+La programación orientada a objetos es un paradigma que presenta muchas ventajas en base al tipo de proyecto que se tiene en mente, el desarrollar de esta manera me ha permitido indagar mas a fondo en el lenguaje, manejo de librerías, manejo de licencias, patrones de diseño, aplicación de principios SOLID (al menos una implementación muy básica), creación de grafos, aplicación de algoritmos de búsqueda, etc.
+El proyecto ha sido diseñado para ser una herramienta libre, que permita desarrollar el pensamiento computacional al tiempo que se juega, y es un inicio para que el usuario pueda indagar más sobre este tema con las nociones más básicas en la resolución de problemas a través de algoritmos.
 
 ## Referencias
 
