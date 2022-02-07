@@ -1,5 +1,5 @@
 /********************************************************************************************************************
- * Grafo.js
+ * Arbol.js
  * Copyright (c) 2021 Carlos Sandoval
  * @author Carlos Santiago Sandoval Casallas, https://github.com/CarlosSandoval-03/aprender_programacion_p5
  * Publicado bajo los términos de la licencia GPLv3, consulte: http://www.gnu.org/licenses/gpl.html
